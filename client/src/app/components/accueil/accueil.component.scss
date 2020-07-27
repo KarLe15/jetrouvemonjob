@@ -1,0 +1,103 @@
+.jarallax {
+  height: 955px;
+}
+.container-search{
+  width: 65%;
+}
+
+@media (max-width: 740px) {
+  .jarallax {
+    height: 100vh;
+  }
+  .container-search{
+    width: 80%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .jarallax {
+    height: 100vh;
+  }
+  .container-search{
+    width: 100%;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .jarallax {
+    height: 100vh;
+  }
+  .container-search{
+    width: 90%;
+  }
+}
+@media (min-width: 560px) and (max-width: 650px) {
+  header .jarallax h1 {
+    margin-bottom: 1.5rem !important;
+  }
+  header .jarallax h5 {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+
+h5 {
+  letter-spacing: 3px;
+}
+
+/*------------------------- Form -----------------------------*/
+.form-control-sm {
+  height: calc(1.5em + 0.5rem + 19px);
+  width: 100%;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.6rem;
+  font-family: 'Nunito';
+  font-size: 16px;
+}
+
+.labelSearch{
+  font-family: 'Nunito';
+  font-size: 25px;
+  margin-bottom: -2px;
+}
+
+.iconSearch{
+  position: absolute;
+  font-size: 32px;
+}
+.iconSearch:before {
+  margin-top: 9px;
+  margin-right: 9px;
+}
+.description{
+  font-family: 'Nunito';
+}
+
+.btnSearch{
+  margin-top: 23px;
+  margin-left: 20px;
+  padding: 11px 28px 11px 28px;
+  font-family: "Nunito";
+  text-transform: none !important;
+  font-size: 17px;
+  border-radius: 13px;
+  background-color: #3F729B !important;
+}
+
+
+/*------------------*/
+.autocomplete-container .input-container input {
+  font-size: 16px;
+  /* box-sizing: border-box; */
+  border: none;
+  /* box-shadow: none; */
+  border-radius: 0.67rem !important;
+  outline: 0;
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+  width: 100%;
+  padding: 0 15px;
+  line-height: 40px;
+  height: 40px;
+}

@@ -1,0 +1,61 @@
+<div class="bodyLoggin">
+  <div class="form col-6 offset-3 d-flex flex-center">
+
+    <form class="text-center border border-light p-5" #loginForm=ngForm (ngSubmit)="submit()"  >
+
+      <p class="h3"> Connexion </p>
+      <hr class="mb-4">
+      <!-- Errors -->
+      <div  class="alert alert-danger" role="alert" [hidden]="!errors">
+        {{errors}}
+      </div>
+      <!-- Email -->
+      <input
+        type="username"
+        name="username"
+        aria-describedby="username"
+        class="form-control mb-4"
+        placeholder="Username"
+        [(ngModel)]="form.username"
+        required
+      >
+      <small *ngIf="false" id="usernameHelp" class="form-text text-muted errorMessage text-left">Username incorrect.</small>
+      <!-- Password -->
+      <input
+        type="password"
+        name="password"
+        aria-describedby="password"
+        class="form-control mb-4"
+        placeholder="Password"
+        [(ngModel)]="form.password"
+        required
+      >
+      <small *ngIf="false" id="password" class="form-text text-muted errorMessage text-left">Password Incorrect</small>
+
+<!--      <div class="d-flex justify-content-around">-->
+<!--        <div>-->
+<!--          &lt;!&ndash; Remember me &ndash;&gt;-->
+<!--          <div class="custom-control custom-checkbox">-->
+<!--            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">-->
+<!--            <label class="custom-control-label" for="defaultLoginFormRemember">Souvenir de moi</label>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          &lt;!&ndash; Forgot password &ndash;&gt;-->
+<!--          <a href="#" >Mot de passe oublié ?</a>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <!-- Sign in button -->
+      <button class="btn btn-info btn-block my-4" type="submit" [disabled]="!loginForm.valid">Connexion</button>
+
+      <!-- Register -->
+      <p>Pas encore un membre?
+        <a class="ml-2" routerLink="/signup">S'inscrire</a>
+      </p>
+
+    </form>
+
+  </div>
+
+</div>

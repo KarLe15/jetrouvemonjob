@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@import "data/mixins";
+@import "data/variables";
+
+@import "fonts/fonts";
+
+@import "bootstrap/bootstrap-custom";
+@import "bootstrap/mdbootstrap-custom";
+
+@import '~ngx-ui-switch/ui-switch.component.scss';
+
+
+.custom-switches {
+  .switch {
+    background: #f5f5f5;
+    small {
+      background: white;
+    }
+    &.checked {
+      background: #4B515D  ;
+    }
+  }
+}
+
+.autocomplete-container .input-container input {
+  font-size: 16px;
+  /* box-sizing: border-box; */
+  border: none;
+  /* box-shadow: none; */
+  height: calc(1.5em + 0.5rem + 19px) !important;
+  width: 100% !important;
+  padding: 0.25rem 0.7rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  border-radius: 0.6rem !important;
+  font-family: 'Nunito' !important;
+  font-size: 16px !important;
+}

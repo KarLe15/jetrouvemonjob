@@ -1,0 +1,216 @@
+<div class="container-fluid mt">
+
+  <!--  Partie Recherche  -->
+  <div class="d-flex  align-items-center ml-5">
+    <form class="form" #searchFormResult=ngForm (ngSubmit)="submit()">
+      <div class="row container-form">
+        <div class="col-lg-4 col-md-12">
+          <label class="labelSearch text-black  font-small" for="search"> Quoi </label>
+          <div class="form-group d-flex justify-content-end">
+            <input
+              id="search"
+              class="form-control form-control-sm"
+              type="text" placeholder="métier, mots-clés ou entreprise"
+              aria-label="Search"
+              name="name"
+              [(ngModel)]="form.KEYWORD"
+              required
+            >
+            <i class="iconSearch fi flaticon-magnifying-glass mr-4" aria-hidden="false"></i>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <label class="labelSearch text-black font-small" for="position"> Où </label>
+          <div class="form-group d-flex justify-content-end">
+            <input
+              id="position"
+              class="form-control form-control-sm "
+              type="text"
+              placeholder="ville, département, région ou code postal"
+              aria-label="Search"
+              name="location"
+              [(ngModel)]="form.DEPARTEMENTS  "
+            >
+            <i class="iconSearch fi flaticon-geo mr-4" aria-hidden="false"></i>
+          </div>
+        </div>
+        <div class="d-flex align-items-center ml-3">
+          <button class="btnSearch btn btn-indigo" [disabled]="!searchFormResult.valid"> Rechercher </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <hr>
+  <!--  Partie Résultat  -->
+
+  <div class="result">
+    <div class="row">
+
+      <!-- Filtres -->
+      <div *ngIf="filtresPossibles != undefined" class="col-md-12 col-lg-2 container-filter">
+        <div class="title-header"> <i class="fi flaticon-search"> </i> Filtres </div>
+        <hr>
+        <div class="mb-2 ml-4  customer-card " *ngFor="let item of filtresPossibles; let i = index">
+          <div class="" >
+            <div class="item-filter "> {{item.filtre}}</div>
+            <div *ngFor="let element of item.agregation; let j = index">
+              <div  class="d-flex justify-content-between">
+                <div>
+                  {{getIntituleFromValeur(element.valeurPossible, item)}}
+                  <span class="nb-filter ml-2"> ({{element.nbResultats}})</span>
+                </div>
+                <ui-switch class="custom-switches" size="small" [checked]="element.filterBool" (change)="filtrer(i,j)"></ui-switch>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+      <div *ngIf="resultats != undefined" class="col-md-12 col-lg-10 container-result mb-4">
+        <p class="lead"> Nombre de résulats: {{ resultats.length }} annonces </p>
+        <div class="row">
+          <div class="col-md-12 col-lg-5 ">
+            <div class="container-list-result">
+              <div *ngFor="let item of resultats | angularPaginator: { currentPage: currentPage, itemsPerPage: itemsPerPage }; let i = index">
+
+                <div *ngIf="toShow(item)" class="card pt-2 container-box mb-3" (click)="showDetails((currentPage - 1) * itemsPerPage + i )">
+                  <div class="col-md-12 mb-2">
+                    <!-- Main heading -->
+                    <h3 class="h3 header-box">{{item.intitule}}</h3>
+                    <div>  <i class="fi flaticon-geo mr-2" aria-hidden="false"></i> {{item.lieuTravail.libelle }} </div>
+                    <div class="d-flex justify-content-between ">
+                      <div *ngIf="item.entreprise != undefined "> <i class="fi flaticon-business-and-trade mr-2" aria-hidden="false"></i> {{item.entreprise.nom}} </div>
+                      <div> <i class="fi flaticon-clock mr-2" aria-hidden="false"></i> {{item.dureeTravailLibelleConverti}} </div>
+                    </div>
+                      <div> <i class="fi flaticon-contract mr-2" aria-hidden="false"></i>  {{item.typeContrat}}</div>
+                    <p class="description-short mt-1">
+                      {{item.description | summary }}
+                    </p>
+                    <p class="date-creation">
+                      <i class="fi flaticon-calendar mr-2" aria-hidden="false"></i> Il y a {{calculateDate(item.dateCreation)}} jours
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paginateur -->
+            <div class="d-flex justify-content-center ">
+              <angular-paginator
+                (pageChange)="currentPage = $event"
+                previousText="Précédent"
+                nextText="Suivant">
+              </angular-paginator>
+            </div>
+
+          </div>
+
+
+          <!-- Détails -->
+          <div *ngIf="pageDetail !== undefined" class="col-md-12 col-lg-7">
+            <div class="container-detail mb-4">
+              <div class="d-flex justify-content-between">
+                <div class="h3 header-box">{{pageDetail.intitule}}</div>
+                <div *ngIf="currentUser" class="details-icons">
+                  <ul class="nav nav-pills mb-3 d-flex justify-content-between" id="pills-tab" role="tablist">
+                    <li class="ml-5 nav-item ">
+                      <a  id="pills-option-tab" data-toggle="pill" href="#pills-description" role="tab"
+                         aria-controls="pills-option" aria-selected="true">
+                        <i class=" fi flaticon-checklist mr-3 details-save" aria-hidden="false" ></i>
+                      </a>
+                    </li>
+                    <li class="mr-1 nav-item">
+                      <a  id="pills-mode-tab" data-toggle="pill" href="#pills-comments" role="tab"
+                         aria-controls="pills-mode" aria-selected="true">
+                        <i class=" fi flaticon-comment ml-3 details-comment" aria-hidden="false"></i>
+                      </a>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+              <hr>
+
+              <div class="card-body card-body-cascade pb-0 ml-4 mr-5 tab-content pt-2 pl-1" id="pills-tabContent">
+
+                <!-- Détails -->
+                <div class="tab-pane fade  show active" id="pills-description" role="tabpanel" aria-labelledby="pills-option-tab" >
+
+                  <div class="d-flex justify-content-between details-libelle">
+                    <div *ngIf="pageDetail.entreprise != undefined "> <i class="fi flaticon-business-and-trade mr-2" aria-hidden="false"></i> {{pageDetail.entreprise.nom}} </div>
+                    <div> <i class="fi flaticon-clock mr-1" aria-hidden="false"></i> {{pageDetail.dureeTravailLibelleConverti}}  </div>
+                  </div>
+                  <div class="details-libelle">  <i class="fi flaticon-geo mr-2" aria-hidden="false"></i> {{pageDetail.lieuTravail.libelle }} </div>
+                  <div class="details-libelle">  <i class="fi flaticon-contract mr-2" aria-hidden="false"></i> {{pageDetail.natureContrat }},{{pageDetail.typeContrat}} </div>
+                  <div class="details-title"> - Description du poste </div>
+                  <div class="description-detail">{{pageDetail.description}}</div>
+
+                  <div *ngIf="pageDetail.competences.length != 0">
+                    <p class="details-title" >- Compétences</p>
+                    <div class="details-numerate ml-2" *ngFor="let c of pageDetail.competences">
+                      <div>
+                        <span class="mr-1">*</span>
+                        {{c.libelle}}
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="pageDetail.formations.length != 0">
+                    <p class="details-title">- Formations </p>
+                    <div class="details-numerate ml-2" *ngFor="let c of pageDetail.formations">
+                      <div>
+                        <span class="mr-1">*</span>
+                        {{c.niveauLibelle}}
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <hr class="mt-5">
+                  <div *ngIf="pageDetail.contact != undefined" class="details-contact ">
+                    <i class="fi flaticon-business-and-trade mr-2" aria-hidden="false"> {{pageDetail.contact.nom}} </i>
+                    <i class="fi flaticon-email ml-2 mr-2" aria-hidden="false"> {{pageDetail.contact.courriel}} </i>
+                  </div>
+                </div>
+
+
+                <!-- Comment -->
+                <div *ngIf="currentUser" class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-option-tab">
+                  <div *ngFor="let comment of commentaires; let k = index">
+                    <div class="container-message mb-4">
+                      <div class="h4"> {{comment.id_user}} </div>
+                      <p class="comment-text">
+                        {{comment.content_com}}
+                      </p>
+                      <div class="d-flex justify-content-between">
+                        <div class="comment-like">
+                          <i class="fi flaticon-like-1 mr-1" (click)="like(k)" ></i> {{comment.nb_likes}}
+                        </div>
+                        <div class="comment-like">
+                          <i class="fi flaticon-dislike mr-1" (click)="dislike(k)"> </i> {{comment.nb_dislikes}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="mt-4">
+                  <div class="form-group green-border-focus">
+                    <label for="exampleFormControlTextarea5">Mon commentaire </label>
+                    <textarea name="commentaire" [(ngModel)]="commentText" class="form-control" id="exampleFormControlTextarea5" rows="3" ></textarea>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-indigo" (click)="addComment(pageDetail)" > Envoyer </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

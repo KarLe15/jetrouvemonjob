@@ -1,0 +1,82 @@
+[
+  {
+    "code": "E1",
+    "libelle": "Contrat travail"
+  },
+  {
+    "code": "E2",
+    "libelle": "Contrat apprentissage"
+  },
+  {
+    "code": "FA",
+    "libelle": "Act. Formation pré.recrut."
+  },
+  {
+    "code": "FJ",
+    "libelle": "Contrat pacte"
+  },
+  {
+    "code": "FS",
+    "libelle": "Cont. professionnalisation"
+  },
+  {
+    "code": "FT",
+    "libelle": "CUI - CAE"
+  },
+  {
+    "code": "FU",
+    "libelle": "CUI - CIE"
+  },
+  {
+    "code": "I1",
+    "libelle": "Insertion par l'activ.éco."
+  },
+  {
+    "code": "NS",
+    "libelle": "Emploi non salarié"
+  },
+  {
+    "code": "FV",
+    "libelle": "Prépa.opérationnel.emploi"
+  },
+  {
+    "code": "FW",
+    "libelle": "Emploi Avenir non marchand"
+  },
+  {
+    "code": "FX",
+    "libelle": "Emploi Avenir marchand"
+  },
+  {
+    "code": "FY",
+    "libelle": "Emploi Avenir Professeur"
+  },
+  {
+    "code": "PS",
+    "libelle": "Portage salarial"
+  },
+  {
+    "code": "PR",
+    "libelle": "Contrat PrAB"
+  },
+  {
+    "code": "CC",
+    "libelle": "CDI de chantier ou d’opération"
+  },
+  {
+    "code": "CU",
+    "libelle": "Contrat d'usage"
+  },
+  {
+    "code": "EE",
+    "libelle": "Contrat d'Engagement Educatif"
+  },
+  {
+    "code": "ER",
+    "libelle": "Engagement à servir dans la réserve"
+  },
+  {
+    "code": "CI",
+    "libelle": "Contrat intermittent"
+  }
+]

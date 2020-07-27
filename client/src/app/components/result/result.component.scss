@@ -1,0 +1,157 @@
+.mt{
+  margin-top: 100px;
+}
+
+.form-control-sm {
+  height: calc(1.5em + 0.5rem + 14px);
+  width: 100%;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  border-radius: 0.6rem;
+  font-family: 'Nunito';
+  font-size: 14px;
+}
+
+.labelSearch{
+  font-family: 'Nunito';
+  font-size: 20px;
+  margin-bottom: -2px;
+}
+
+.iconSearch{
+  position: absolute;
+  font-size: 20px;
+}
+.iconSearch:before {
+  margin-top: 10px;
+  margin-right: 9px;
+}
+
+.btnSearch{
+  margin-top: 15px;
+  margin-left: 45px;
+  padding: 11px 35px 11px 35px;
+  font-family: "Nunito";
+  text-transform: none !important;
+  font-size: 15px;
+  border-radius: 13px;
+  background-color: #3F729B !important;
+}
+.container-form{
+  width: 180%;
+}
+
+/*---------------------- Filtres ---------------------------*/
+.title-header{
+  font-family: 'Nunito';
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.item-filter{
+  font-family: 'Nunito';
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.value-filter{
+  color: #4B515D;
+}
+
+.nb-filter{
+  color: #e0e0e0 ;
+;
+}
+
+.container-filter{
+  min-height: 676px;
+}
+.customer-card {
+  box-shadow: white !important;
+}
+
+
+/*-----------------------------*/
+.lead{
+  font-family: 'Nunito';
+  color: #bdbdbd;
+  font-size: 15px;
+}
+.container-result{
+  min-height: 676px;
+}
+
+.container-list-result{
+  min-height: 700px;
+}
+
+.container-box{
+  cursor: pointer;
+}
+
+.header-box{
+  font-size: 22px;
+  font-family: 'Nunito';
+}
+.description-short{
+  font-family: 'Nunito';
+  color: #616161;
+}
+.date-creation{
+  font-family: 'Nunito';
+  color: #212121;
+}
+/*-----------------------------*/
+.container-detail{
+  height:  100%;
+  max-height: 1300px;
+  overflow: auto;
+  border: 0.2px #f5f5f5 solid;
+  border-radius: 2%;
+  padding: 16px;
+}
+
+.description-detail{
+  font-family: 'Nunito';
+  text-align: justify;
+}
+
+.details-libelle{
+  font-size: 22px;
+}
+
+.details-title{
+  margin-top: 10px;
+  font-family: 'Nunito';
+  font-size: 21px;
+}
+
+.details-contact{
+}
+
+.details-icons{
+  font-size: 35px;
+  margin-top: -10px;
+  margin-bottom: -23px;
+}
+.details-comment, .details-save{
+  cursor: pointer;
+}
+
+
+.container-message{
+  font-family: 'Nunito';
+  border: 0.2px #f5f5f5 solid;
+  border-radius: 2%;
+  padding: 10px;
+}
+
+.comment-like{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.comment-text{
+  color: #3E4551;
+}

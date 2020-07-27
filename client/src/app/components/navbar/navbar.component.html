@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar lighten-4 justify-content-between">
+  <a class="navbar-brand title" routerLink="/">Je trouve Mon JOB</a>
+
+  <div class="mr-5 connexion">
+    <ul *ngIf="!login" class="navbar-nav align-items-center d-none d-md-flex">
+      <a class="navbar-brand" routerLink="login">Se connecter</a>
+    </ul>
+    <ul *ngIf="login" class="navbar-nav align-items-center d-none d-md-flex ml-4">
+      <li class="nav-item dropdown">
+        <a class="nav-link pr-0"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="../assets/pictures/avatar.jpg">
+              </span>
+            <div class="media-body ml-2 d-none d-lg-block">
+              <span class="mb-0 text-sm font-weight-bold">{{currentUser.nom}} {{currentUser.prenom}}</span>
+            </div>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+          <a  routerLink="profile" class="dropdown-item">
+            <i class="fi flaticon-contract mr-2"></i>
+            <span>Mon Profil</span>
+          </a>
+<!--          <a href="#" class="dropdown-item">-->
+<!--            <i class="fi flaticon-purse mr-2"></i>-->
+<!--            <span>Sauvegardes</span>-->
+<!--          </a>-->
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">
+            <i class="fi flaticon-back mr-2"></i>
+            <span>Déconnexion</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</nav>

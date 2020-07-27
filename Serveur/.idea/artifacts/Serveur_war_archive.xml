@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Serveur:war archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/Serveur_war_archive</output-path>
+    <root id="archive" name="Serveur_war archive.war">
+      <element id="javaee-facet-resources" facet="Serveur/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Serveur" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-codec-1.11" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

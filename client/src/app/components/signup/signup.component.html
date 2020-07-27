@@ -1,0 +1,101 @@
+<div class="container-signup">
+  <div class="form col-6 offset-3 mb-1 d-flex flex-center">
+
+    <form class="text-center border border-light p-5" #signupForm=ngForm (ngSubmit)="submit()"  >
+
+      <p class="h3"> Inscription </p>
+      <hr class="mb-4">
+      <!-- Errors -->
+      <div *ngIf="errors" class="alert alert-danger" role="alert">
+        {{errors.toString()}}
+      </div>
+      <div class="form-row mb-4">
+        <div class="col">
+          <!-- First name -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nom"
+            name="nom"
+            [(ngModel)]="form.nom"
+            required
+          >
+        </div>
+        <div class="col">
+          <!-- Last name -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Prénom"
+            name="prenom"
+            [(ngModel)]="form.prenom"
+            required
+          >
+        </div>
+      </div>
+      <!-- E-mail -->
+      <input
+        type="text"
+        class="form-control mb-4"
+        placeholder="Username"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+      >
+
+      <!-- E-mail -->
+      <input
+        type="email"
+        class="form-control mb-4"
+        placeholder="E-mail"
+        name="email"
+        [(ngModel)]="form.mail"
+        required
+      >
+
+
+      <!-- Password -->
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Mot de passe"
+        aria-describedby="defaultRegisterFormPasswordHelpBlock"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+      >
+      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4 text-left">
+        At least 8 characters and 1 digit
+      </small>
+
+      <!-- Confirm Password -->
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Confirmer votre mot de passe"
+        aria-describedby="defaultRegisterFormConfirmPasswordHelpBlock"
+        name="confirmedPassword"
+        [(ngModel)]="form.confirmedPassword"
+        required
+      >
+      <small id="defaultRegisterFormConfirmPasswordHelpBlock" class="form-text text-muted mb-4 text-left">
+        At least 8 characters and 1 digit
+      </small>
+
+      <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4 text-left">
+        Optional - for two step authentication
+      </small>
+      <button class="btn btn-info my-4 btn-block" type="submit" [disabled]="!signupForm.valid">S'inscrire</button>
+
+
+      <!-- Terms of service -->
+      <hr>
+      <p>En cliquant
+        <em>S'inscrire</em> vous acceptez nos
+        <a href="" target="_blank">conditions d'utilisation</a>
+
+    </form>
+
+  </div>
+
+</div>

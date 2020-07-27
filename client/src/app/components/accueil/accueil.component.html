@@ -1,0 +1,107 @@
+<div id="home"
+     class="view jarallax"
+     style="background-image: url(assets/pictures/acceuil.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center center;">
+
+  <div class="mask rgba-stylish-light">
+    <div class="h-75 d-flex justify-content-center align-items-center">
+      <div class="container-search">
+          <div class="m-4">
+            <div class="description">
+              <h1 class="display-3 white-text mb-1 fadeInDown" >Je trouve Mon JOB </h1>
+              <h5 class=" white-text mb-5 mt-1 font-weight-bold " >Je trouve Mon JOB s'efforce de faire des candidats
+                une priorité en leur permettant de chercher un emploi, de publier leur CV et de se renseigner au sujet des employeurs. </h5>
+            </div>
+            <form class="form" #searchForm=ngForm (ngSubmit)="submit()">
+              <div class="row">
+                <div class="col-lg-5 col-md-12">
+                  <label class="labelSearch white-text font-weight-bold" > Quoi </label>
+                  <div class="form-group d-flex justify-content-end">
+                      <input
+                        id="search"
+                        class="form-control form-control-sm"
+                        type="text" placeholder="métier, mots-clés ou entreprise"
+                        aria-label="Search"
+                        name="name"
+                        [(ngModel)]="form.KEYWORD"
+                        required
+                      >
+                    <i class="iconSearch fi flaticon-magnifying-glass mr-4" aria-hidden="false"></i>
+                  </div>
+<!--                  <div class="form-group d-flex justify-content-end">-->
+<!--                    <div class="ng-autocomplete">-->
+<!--                      <ng-autocomplete-->
+<!--                        [data]="appellations"-->
+<!--                        [searchKeyword]="keyword"-->
+<!--                        placeHolder="métier, mots-clés ou entreprise"-->
+<!--                        (selected)='selectEvent($event)'-->
+<!--                        (inputChanged)='onChangeSearch($event)'-->
+<!--                        (inputFocused)='onFocused($event)'-->
+<!--                        historyIdentifier="countries"-->
+<!--                        [itemTemplate]="itemTemplate"-->
+<!--                        [notFoundTemplate]="notFoundTemplate">-->
+<!--                      </ng-autocomplete>-->
+
+<!--                      <ng-template #itemTemplate let-item>-->
+<!--                        <a [innerHTML]="item.libelle"></a>-->
+<!--                      </ng-template>-->
+
+<!--                      <ng-template #notFoundTemplate let-notFound>-->
+<!--                        <div [innerHTML]="notFound"></div>-->
+<!--                      </ng-template>-->
+<!--                    </div>-->
+<!--                    <i class="iconSearch fi flaticon-magnifying-glass mr-4" aria-hidden="false"></i>-->
+<!--                  </div>-->
+
+
+                </div>
+                <div class="col-lg-5 col-md-12">
+                  <label class="labelSearch white-text font-weight-bold" > Où </label>
+                  <div class="form-group d-flex justify-content-end">
+                    <div class="ng-autocomplete">
+                      <ng-autocomplete
+                        [data]="appellations"
+                        [searchKeyword]="keyword"
+                        placeHolder="ville, département, région ou code postal"
+                        (selected)='selectEvent($event)'
+                        [itemTemplate]="itemTemplate"
+                        [notFoundTemplate]="notFoundTemplate">
+                      </ng-autocomplete>
+
+                      <ng-template #itemTemplate let-item>
+                        <a [innerHTML]="item.libelle.concat(', ').concat(item.code)"></a>
+                      </ng-template>
+
+                      <ng-template #notFoundTemplate let-notFound>
+                        <div [innerHTML]="notFound"></div>
+                      </ng-template>
+                    </div>
+                    <i class="iconSearch fi flaticon-geo mr-4" aria-hidden="false"></i>
+                  </div>
+<!--                  <div class="form-group d-flex justify-content-end">-->
+<!--                    <input-->
+<!--                      id="position"-->
+<!--                      class="form-control form-control-sm "-->
+<!--                      type="text"-->
+<!--                      placeholder="ville, département, région ou code postal"-->
+<!--                      aria-label="Search"-->
+<!--                      name="location"-->
+<!--                      [(ngModel)]="form.location"-->
+<!--                    >-->
+<!--                    <i class="iconSearch fi flaticon-geo mr-4" aria-hidden="false"></i>-->
+<!--                  </div>-->
+                </div>
+                <div class="d-flex align-items-center">
+                  <button class="btnSearch btn btn-indigo" [disabled]="!searchForm.valid"> Rechercher </button>
+                </div>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

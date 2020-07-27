@@ -1,0 +1,28 @@
+<div  class="modal fade" [attr.id]="type+idModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <form #validForm=ngForm >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">{{type}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-9">
+          <div class="form-group green-border-focus">
+            <label >Intitulé</label>
+            <input type="text" class="form-control validate" name="name" [(ngModel)]="name" required>
+          </div>
+
+          <div class="form-group green-border-focus">
+            <label >Description</label>
+            <textarea class="form-control" rows="4" cols="6" name="description" [(ngModel)]="description" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button [attr.id]="type+idModal" class="btn btn-default" data-dismiss="modal" type="submit" (click)="valider()" [disabled]="!validForm.valid" >Valider</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

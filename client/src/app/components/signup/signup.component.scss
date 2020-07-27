@@ -1,0 +1,19 @@
+.form{
+  margin-top: 100px;
+}
+
+.border-light {
+  width: 80%;
+}
+
+.ng-invalid:not(form) {
+  border-left: 8px solid #ff4444;
+}
+
+.ng-valid:not(form) {
+  border-left: 8px solid #00C851;
+}
+
+.container-signup{
+  height: 89.5vh;
+}
