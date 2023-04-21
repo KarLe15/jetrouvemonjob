@@ -23,7 +23,7 @@
     "angular-ng-autocomplete": "^2.0.1",
     "angular-paginator": "^5.0.1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mdbootstrap": "^4.15.0",
     "ngx-ui-switch": "^9.0.2",
     "popper": "^1.0.1",
